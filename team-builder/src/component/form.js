@@ -11,8 +11,9 @@ export default function Form(props) {
   const [stateError, set_stateError] = useState(null);
 
   const cb_onChange = (event) => {
-    console.log("event.target = ", event.target);
-    console.log("event.value = ", event.value);
+    console.log("event.target.name = ", event.target.name);
+    console.log("event.target.value = ", event.target.value);
+    set_stateForm({ ...stateForm, [event.target.name]: event.target.value });
   };
 
   const cb_onSubmit = (event) => {
@@ -26,13 +27,14 @@ export default function Form(props) {
         <label>
           Name :{" "}
           <input
-            name=""
+            name="name"
             type="text"
-            value=""
+            value={stateForm.name}
             id="input_name"
             onChange={cb_onChange}
           />
         </label>
+        <button>Submit</button>
       </form>
     </div>
   );
