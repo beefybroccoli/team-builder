@@ -1,5 +1,6 @@
 import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 export default function Form(props) {
   const initial_state = {
@@ -34,9 +35,14 @@ export default function Form(props) {
     props.set_stateNewMember(stateForm);
   };
 
+  const Form_Div = styled.div`
+    border: 1px solid gray;
+    margin: 0 5% 0 5%;
+  `;
+
   return (
-    <div>
-      <h3>Form.js</h3>
+    <Form_Div>
+      {/* <h3>Form.js</h3> */}
       <form onSubmit={cb_onSubmit}>
         <label>
           Name :{" "}
@@ -48,7 +54,7 @@ export default function Form(props) {
             onChange={cb_onChange}
           />
         </label>
-        <br />
+
         <label>
           Email :{" "}
           <input
@@ -69,7 +75,7 @@ export default function Form(props) {
             <option value="sales">Sales</option>
           </select>
         </label>
-        <br />
+
         <label>
           On Vacation:{" "}
           <input
@@ -80,9 +86,9 @@ export default function Form(props) {
             onChange={cb_onChange}
           />
         </label>
-        <br />
+
         <button>Submit</button>
       </form>
-    </div>
+    </Form_Div>
   );
 }

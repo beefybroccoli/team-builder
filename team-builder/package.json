@@ -12,6 +12,7 @@
     "react-schema-form": "^0.9.10",
     "react-schema-form-rc-select": "^0.3.18",
     "react-scripts": "4.0.3",
+    "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
