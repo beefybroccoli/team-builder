@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
+const Form_Div = styled.div`
+  border: 1px solid gray;
+  margin: 0 5% 0 5%;
+`;
+
 export default function Form(props) {
   const initial_state = {
     name: "",
@@ -11,7 +16,6 @@ export default function Form(props) {
   };
 
   const [stateForm, set_stateForm] = useState(initial_state);
-  const [stateError, set_stateError] = useState(null);
 
   const cb_onChange = (event) => {
     console.log("event.target.name = ", event.target.name);
@@ -34,11 +38,6 @@ export default function Form(props) {
     props.set_stateNewMember(stateForm);
   };
 
-  const Form_Div = styled.div`
-    border: 1px solid gray;
-    margin: 0 5% 0 5%;
-  `;
-
   return (
     <Form_Div>
       {/* <h3>Form.js</h3> */}
@@ -46,6 +45,7 @@ export default function Form(props) {
         <label>
           Name :{" "}
           <input
+            key=""
             name="name"
             type="text"
             value={stateForm.name}
