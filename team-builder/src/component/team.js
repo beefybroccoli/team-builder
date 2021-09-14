@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Form from "./form";
-import { sample_data } from "./constant";
 
 import Member from "./member";
 
 export default function Team(props) {
-  const [stateTeamMembers, set_stateTeamMember] = useState(sample_data);
+  const [stateTeamMembers, set_stateTeamMembers] = useState(null);
   const [stateNewMember, set_stateNewMember] = useState(null);
 
   //run when the component initially render
   useEffect(() => {
     props.input_object.teamMembers &&
-      set_stateTeamMember(props.input_object.teamMembers);
+      set_stateTeamMembers(props.input_object.teamMembers);
   }, []);
 
   //run when stateNewMember change
@@ -21,14 +20,12 @@ export default function Team(props) {
       console.log("stateNewMember = ", stateNewMember);
 
       //add member to Member_List
-      set_stateTeamMember([...stateTeamMembers, stateNewMember]);
+      set_stateTeamMembers([...stateTeamMembers, stateNewMember]);
 
       //reset stateNewMember to null
       set_stateNewMember(null);
     }
   }, [stateNewMember]);
-
-  //   const { teamName } = props.input_object;
 
   const Team_Div = styled.div`
     border: 1px solid black;
@@ -45,7 +42,7 @@ export default function Team(props) {
 
       {stateTeamMembers &&
         stateTeamMembers.map((eachMember, index) => {
-          return <Member input_object={eachMember} />;
+          return <Member key={index} input_object={eachMember} />;
         })}
     </Team_Div>
   );
