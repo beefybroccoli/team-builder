@@ -7,25 +7,23 @@ import Home from "./component/home";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/teams/:id">
-          <Team />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route
-          render={() => {
-            return (
-              <div>
-                <p>Page 404</p>
-              </div>
-            );
-          }}
-        />
-      </Switch>
-    </BrowserRouter>
+    <Switch>
+      <Route path="/teams/:id">
+        <Team />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route
+        render={() => {
+          return (
+            <div>
+              <p>Page 404</p>
+            </div>
+          );
+        }}
+      />
+    </Switch>
   );
 }
 

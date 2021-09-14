@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Form from "./form";
 import { useParams, useRouteMatch } from "react-router-dom";
 import Member from "./member";
+import { list_of_teams } from "./constant.js";
 
 export default function Team(props) {
   const [stateTeamMembers, set_stateTeamMembers] = useState(null);
@@ -12,8 +13,9 @@ export default function Team(props) {
 
   //run when the component initially render
   useEffect(() => {
-    props.input_object.teamMembers &&
-      set_stateTeamMembers(props.input_object.teamMembers);
+    props.input_object && set_stateTeamMembers(props.input_object.teamMembers);
+
+    id && set_stateTeamMembers(list_of_teams[id - 1].teamMembers);
   }, []);
 
   //run when stateNewMember change
@@ -38,7 +40,7 @@ export default function Team(props) {
   return (
     <Team_Div>
       <h2>
-        (Team.js - {id} - {url})
+        (Team.js - id={id}, url={url})
       </h2>
       <h3>{props.input_object && props.input_object.teamName}</h3>
 

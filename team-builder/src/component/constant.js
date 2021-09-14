@@ -35,7 +35,7 @@ export const team_alpha = {
 
 export const team_bravo = {
   id: 2,
-  teamName: "Project Alpha",
+  teamName: "Project Bravo",
   teamMembers: [
     {
       name: "bravo",
