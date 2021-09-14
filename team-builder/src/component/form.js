@@ -1,4 +1,3 @@
-import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
@@ -15,7 +14,6 @@ export default function Form(props) {
   const [stateError, set_stateError] = useState(null);
 
   const cb_onChange = (event) => {
-    event.preventDefault();
     console.log("event.target.name = ", event.target.name);
     console.log("event.target.value = ", event.target.value);
 
