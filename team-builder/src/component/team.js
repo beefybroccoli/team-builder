@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Form from "./form";
-
+import { useParams, useRouteMatch } from "react-router-dom";
 import Member from "./member";
 
 export default function Team(props) {
   const [stateTeamMembers, set_stateTeamMembers] = useState(null);
   const [stateNewMember, set_stateNewMember] = useState(null);
+  const { id } = useParams();
+  const { url } = useRouteMatch();
 
   //run when the component initially render
   useEffect(() => {
@@ -35,7 +37,9 @@ export default function Team(props) {
 
   return (
     <Team_Div>
-      <h2>(Team.js)</h2>
+      <h2>
+        (Team.js - {id} - {url})
+      </h2>
       <h3>{props.input_object && props.input_object.teamName}</h3>
 
       <Form set_stateNewMember={set_stateNewMember} />
