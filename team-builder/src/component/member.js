@@ -25,9 +25,8 @@ export default function Member(props) {
   if (stateLoading) {
     return <p>{stateLoading ? "Loading..." : ""}</p>;
   }
-
   //when the stateMember is fully loaded, render the member component
-  if (!stateLoading) {
+  else if (!stateLoading) {
     return (
       <p>
         <b>Name : </b> {stateMember.name},<b>Email: </b> {stateMember.email},

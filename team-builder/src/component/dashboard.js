@@ -3,14 +3,19 @@ import styled from "styled-components";
 import Team from "./team";
 import { list_of_teams } from "./constant";
 export default function Dashboard(props) {
+  const Dashboard_Div = styled.div`
+    border: 1px solid red;
+    padding: 0;
+    margin: 0, 2%, 5%, 5%;
+  `;
   return (
-    <div>
+    <Dashboard_Div>
       <h2>Dashboard.js</h2>
       <div>
         {list_of_teams.map((eachTeam, index) => {
           return <Team input_object={eachTeam} key={index} />;
         })}
       </div>
-    </div>
+    </Dashboard_Div>
   );
 }
