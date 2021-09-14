@@ -38,18 +38,21 @@ export default function Team(props) {
   `;
 
   return (
-    <Team_Div>
-      <h2>
-        (Team.js - id={id}, url={url})
-      </h2>
-      <h3>{props.input_object && props.input_object.teamName}</h3>
+    <div>
+      <h2>Team.js</h2>
+      <p>
+        id={id}, url={url}
+      </p>
+      <Team_Div>
+        <h3>{props.input_object && props.input_object.teamName}</h3>
 
-      <Form set_stateNewMember={set_stateNewMember} />
+        <Form set_stateNewMember={set_stateNewMember} />
 
-      {stateTeamMembers &&
-        stateTeamMembers.map((eachMember, index) => {
-          return <Member key={index} input_object={eachMember} />;
-        })}
-    </Team_Div>
+        {stateTeamMembers &&
+          stateTeamMembers.map((eachMember, index) => {
+            return <Member key={index} input_object={eachMember} />;
+          })}
+      </Team_Div>
+    </div>
   );
 }
