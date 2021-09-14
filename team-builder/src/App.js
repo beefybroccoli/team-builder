@@ -4,7 +4,13 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const intial_state = [
-    { name: "tom", role: "manager", email: "tom@gmail.com" },
+    { name: "tom", role: "manager", email: "tom@gmail.com", onVacation: true },
+    {
+      name: "taylor",
+      role: "sales",
+      email: "taylor@gmail.com",
+      onVacation: false,
+    },
   ];
   const [stateTeamMembers, set_stateTeamMember] = useState(intial_state);
   const [stateNewMember, set_stateNewMember] = useState(null);
@@ -33,9 +39,9 @@ function App() {
         stateTeamMembers.map((eachMember, index) => {
           return (
             <p key={index}>
-              <b>Name : </b>
-              {eachMember.name}, <b>Role: </b>
-              {eachMember.role}, <b>Email: </b> {eachMember.email}
+              <b>Name : </b> {eachMember.name},<b>Email: </b> {eachMember.email}
+              ,<b>Role: </b> {eachMember.role},<b>On Vacation: </b>{" "}
+              {String(eachMember.onVacation)},
             </p>
           );
         })}

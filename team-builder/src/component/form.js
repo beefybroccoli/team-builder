@@ -1,3 +1,4 @@
+import { getDefaultNormalizer } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 
 export default function Form(props) {
@@ -5,6 +6,8 @@ export default function Form(props) {
     name: "",
     role: "",
     email: "",
+    onVacation: false,
+    role: "",
   };
 
   const [stateForm, set_stateForm] = useState(initial_state);
@@ -13,11 +16,22 @@ export default function Form(props) {
   const cb_onChange = (event) => {
     console.log("event.target.name = ", event.target.name);
     console.log("event.target.value = ", event.target.value);
-    set_stateForm({ ...stateForm, [event.target.name]: event.target.value });
+
+    if (event.target.name === "onVacation") {
+      set_stateForm({
+        ...stateForm,
+        [event.target.name]: !stateForm.onVacation,
+      });
+    } else {
+      set_stateForm({ ...stateForm, [event.target.name]: event.target.value });
+    }
   };
 
   const cb_onSubmit = (event) => {
     event.preventDefault();
+    set_stateForm(initial_state);
+
+    props.set_stateNewMember(stateForm);
   };
 
   return (
@@ -34,6 +48,39 @@ export default function Form(props) {
             onChange={cb_onChange}
           />
         </label>
+        <br />
+        <label>
+          Email :{" "}
+          <input
+            name="email"
+            type="text"
+            value={stateForm.email}
+            id="input_email"
+            onChange={cb_onChange}
+          />
+        </label>
+        <br />
+        <label>
+          Role :{" "}
+          <select name="role" value={stateForm.role} onChange={cb_onChange}>
+            <option value="(select a role)">(Select a role)</option>
+            <option value="developer">Developer</option>
+            <option value="it">IT</option>
+            <option value="sales">Sales</option>
+          </select>
+        </label>
+        <br />
+        <label>
+          On Vacation:{" "}
+          <input
+            type="checkbox"
+            checked={stateForm.onVacation}
+            value={stateForm.onVacation}
+            name="onVacation"
+            onChange={cb_onChange}
+          />
+        </label>
+        <br />
         <button>Submit</button>
       </form>
     </div>
