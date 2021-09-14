@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import Form from "./form";
 import { sample_data } from "./constant";
-import styled from "styled-components";
+
 import Member from "./member";
 
 export default function Team(props) {

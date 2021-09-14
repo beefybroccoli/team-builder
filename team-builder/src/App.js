@@ -2,7 +2,7 @@ import "./App.css";
 import Form from "./component/form.js";
 import React, { useState, useEffect } from "react";
 import Team from "./component/team";
-import { list_of_teams } from "./component/constant";
+import Dashboard from "./component/dashboard";
 
 function App() {
   return (
@@ -11,9 +11,7 @@ function App() {
         <h2>Team Builder</h2>
       </header>
       <main>
-        {list_of_teams.map((eachTeam, index) => {
-          return <Team input_object={eachTeam} key={index} />;
-        })}
+        <Dashboard />
       </main>
     </div>
   );

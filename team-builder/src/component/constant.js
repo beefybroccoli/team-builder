@@ -9,6 +9,7 @@ export const sample_data = [
 ];
 
 export const team_alpha = {
+  id: 1,
   teamName: "Project Alpha",
   teamMembers: [
     {
@@ -33,6 +34,7 @@ export const team_alpha = {
 };
 
 export const team_bravo = {
+  id: 2,
   teamName: "Project Alpha",
   teamMembers: [
     {
